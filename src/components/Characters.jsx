@@ -33,7 +33,7 @@ const Characters = () => {
         <div key={character.id}>
           <img src={character.image} alt="" />
           <h2> {character.name} </h2>
-          <button type="button" onClick={() => handleClick(character.name)}>
+          <button type="button" onClick={() => handleClick(character)}>
             Agregar a favoritos
           </button>
         </div>
