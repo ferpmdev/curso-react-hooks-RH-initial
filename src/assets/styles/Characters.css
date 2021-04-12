@@ -7,3 +7,10 @@
   justify-content: center;
   margin: 20px 0px 20px 0px;
 }
+
+.favoritesContainer {
+  background-color: rgb(199, 199, 223);
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+}

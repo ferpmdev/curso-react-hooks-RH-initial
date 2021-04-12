@@ -12,9 +12,13 @@ const favoritesReducer = (state, action) => {
     case "REMOVE_FAVORITE":
       return {
         favorites: [
-          ...state.favorites.filter((favorite) => favorite !== favorite.id),
-          //action.payload,
+          state.favorites.filter((favorite) => favorite === favorite.id),
+          // action.payload,
+          // state.favorites.shift(),
         ],
+        // if(payload = null) {
+        // state.favorites[0] = null;
+        // },
       };
 
     default:
@@ -32,7 +36,7 @@ const Characters = () => {
 
   const handleFavoriteOff = (favorite) => {
     dispatch({ type: "REMOVE_FAVORITE", payload: favorite });
-    console.log(favorite);
+    console.log({ payload: favorite.id });
   };
 
   useEffect(() => {
@@ -43,7 +47,8 @@ const Characters = () => {
 
   return (
     <div>
-      <div className="container">
+      <div className="favoritesContainer">
+        <h3>mis favoritos(que no puedo eliminar...)</h3>
         {favorites.favorites.map((favorite) => (
           <div>
             <CardFav
