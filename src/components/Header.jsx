@@ -11,10 +11,10 @@ function Header() {
   return (
     <div
       style={{
-        backgroundColor: color,
         display: "flex",
-        height: 300,
+        height: 160,
         justifyContent: "center",
+        alignContent: "center",
         flexDirection: "column",
         alignItems: "center",
       }}

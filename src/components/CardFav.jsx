@@ -4,8 +4,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 // import "bootstrap/dist/css/bootstrap-grid.min.css";
 
-const card = ({ props }) => {
-  const { handleClick, name, image } = props;
+const cardFav = ({ props }) => {
+  const { handleFavoriteOff, name, image } = props;
   return (
     <div className="card">
       <div className="title">
@@ -15,7 +15,7 @@ const card = ({ props }) => {
       <div
         className="fontA"
         // type="text"
-        onClick={() => handleClick()}
+        onClick={() => handleFavoriteOff()}
       >
         <FontAwesomeIcon icon={faHeart} />
       </div>
@@ -23,4 +23,4 @@ const card = ({ props }) => {
   );
 };
 
-export default card;
+export default cardFav;

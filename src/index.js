@@ -7,7 +7,7 @@ import ThemeContext from "./context/ThemeContext";
 
 ReactDOM.render(
   <React.StrictMode>
-    <ThemeContext.Provider value="character.image">
+    <ThemeContext.Provider value="red">
       <App />
     </ThemeContext.Provider>
   </React.StrictMode>,
