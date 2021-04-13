@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 // import "bootstrap/dist/css/bootstrap-grid.min.css";
 
-const card = ({ props }) => {
+const card = (props) => {
   const { handleClick, name, image } = props;
   return (
     <div className="card">

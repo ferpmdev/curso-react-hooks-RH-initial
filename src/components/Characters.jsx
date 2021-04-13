@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useReducer } from "react";
-import Card from "./Card";
+import Card from "./Card.jsx";
 import "../assets/styles/Characters.css";
 import CardFav from "./CardFav";
 
@@ -11,14 +11,12 @@ const favoritesReducer = (state, action) => {
       return { ...state, favorites: [...state.favorites, action.payload] };
     case "REMOVE_FAVORITE":
       return {
+        ...state,
         favorites: [
-          state.favorites.filter((favorite) => favorite === favorite.id),
-          // action.payload,
-          // state.favorites.shift(),
+          ...state.favorites.filter(
+            (favorite) => action.payload.id !== favorite.id
+          ),
         ],
-        // if(payload = null) {
-        // state.favorites[0] = null;
-        // },
       };
 
     default:
@@ -48,15 +46,11 @@ const Characters = () => {
   return (
     <div>
       <div className="favoritesContainer">
-        <h3>mis favoritos(que no puedo eliminar...)</h3>
         {favorites.favorites.map((favorite) => (
-          <div>
+          <div key={favorite.id}>
             <CardFav
-              key={favorite.id}
-              props={{
-                ...favorite,
-                handleFavoriteOff: () => handleFavoriteOff(favorite),
-              }}
+              handleFavoriteOff={() => handleFavoriteOff(favorite)}
+              {...favorite}
             />
           </div>
         ))}
@@ -65,7 +59,8 @@ const Characters = () => {
         {characters.map((character) => (
           <Card
             key={character.id}
-            props={{ ...character, handleClick: () => handleClick(character) }}
+            {...character}
+            handleClick={() => handleClick(character)}
           />
         ))}
       </div>
